@@ -41,7 +41,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     public void add(Employee employee) {
         try {
             jdbcTemplate.update(ADD_NEW_EMPLOYEE, employee.getFirstname(), employee.getLastname(),
-                    employee.getJobTitle(), employee.getDepartmentId(), employee.getDateOfBirth(), employee.getGender());
+                    employee.getDepartmentId(), employee.getJobTitle(), employee.getDateOfBirth(), employee.getGender());
         } catch (DaoException e) {
             logger.error("Add employee is not available" + e.getMessage(), e);
         }
@@ -70,7 +70,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     public void update(Long id, Employee employee) {
         try {
             jdbcTemplate.update(UPDATE_EMPLOYEE,
-                    new Object[] {employee.getFirstname(), employee.getLastname(), employee.getDepartmentId(), employee.getJobTitle(), employee.getGender(), employee.getDateOfBirth()} , id);
+                    new Object[]{employee.getFirstname(), employee.getLastname(), employee.getDepartmentId(), employee.getJobTitle(), employee.getGender(), employee.getDateOfBirth()}, id);
         } catch (DaoException e) {
             logger.error("Update employee is not available" + e.getMessage(), e);
         }

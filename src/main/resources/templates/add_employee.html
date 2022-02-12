@@ -24,25 +24,21 @@
         <label for="firstname" class="form-label">Enter first name:</label>
         <input type="text" th:field="*{firstname}" id="firstname"
                class="form-control">
-        <div th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}">Lastname error</div>
     </div>
     <div class="col-sm-3">
         <label for="lastname" class="form-label">Enter last name:</label>
         <input type="text" th:field="*{lastname}" id="lastname"
                class="form-control">
-        <div th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Lastname error</div>
     </div>
     <div class="col-sm-3">
-        <label for="depatmentId" class="form-label">Enter depatmentId:</label>
-        <input type="number" th:field="*{depatmentId}" id="depatmentId"
+        <label for="departmentId" class="form-label">Enter department Id:</label>
+        <input type="number" th:field="*{departmentId}" id="departmentId"
                class="form-control">
-        <div th:if="${#fields.hasErrors('depatmentId')}" th:errors="*{depatmentId}">depatment Id error</div>
     </div>
     <div class="col-sm-3">
         <label for="jobTitle" class="form-label">Enter job title:</label>
         <input type="text" th:field="*{jobTitle}" id="jobTitle"
                class="form-control">
-        <div th:if="${#fields.hasErrors('jobTitle')}" th:errors="*{jobTitle}">job title error</div>
     </div>
     <div class="col-sm-2">
         <label for="gender" class="form-label">Enter gender:</label>
@@ -52,7 +48,6 @@
         <label for="dateOfBirth" class="form-label">Enter dateOfBirth:</label>
         <input type="date" th:field="*{dateOfBirth}" id="dateOfBirth"
                class="form-control">
-        <div th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">dateOfBirth error</div>
     </div>
     <br>
     <button type="submit" class="btn btn-primary">Add</button>

@@ -2,7 +2,7 @@ create sequence employee_id_seq start 1;
 
 create table employee
 (
-    employee_id   bigint primary key,
+    employee_id   bigint primary key ,
     first_name    varchar(25) not null,
     last_name     varchar(30) not null,
     department_id bigint      not null,
@@ -10,4 +10,4 @@ create table employee
     gender        varchar(30) not null,
     date_of_birth varchar(30) not null
 );
-alter sequence employee_id_seq owned by employee.employee_id;
+ALTER table employee ALTER COLUMN employee_id SET DEFAULT NEXTVAL('employee_id_seq');

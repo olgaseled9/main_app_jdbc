@@ -17,7 +17,6 @@
 # UI
 - To view the UI, just run the application
 
-
 ### Technologies
 - Java 8
 - Maven
@@ -49,7 +48,7 @@
 ![employee](./img/employee.jpg)
 ![add_employee](./img/add_employee.jpg)
 ![update](./img/update.jpg)
-![employee_page](./img/employee_page.jpg)
+
 
 
 

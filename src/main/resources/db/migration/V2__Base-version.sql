@@ -1,3 +1,4 @@
-insert into gender (id, gender)
-values (1, 'MALE'),
-       (2, 'FEMALE');
+insert into gender (gender)
+values ('MALE'),
+       ('FEMALE');
+

@@ -1,6 +1,5 @@
 package com.seledtsova.exception;
 
-import com.seledtsova.exception.ServiceException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

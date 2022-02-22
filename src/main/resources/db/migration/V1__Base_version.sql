@@ -1,5 +1,5 @@
 create table gender
 (
-    id     bigint     not null primary key,
+    id     bigint primary key GENERATED ALWAYS AS IDENTITY,
     gender varchar not null
 );

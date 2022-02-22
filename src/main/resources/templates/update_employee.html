@@ -31,6 +31,7 @@
     <div class="col-sm-2">
         <label for="lastName" class="form-label">Enter last name:</label>
         <input type="text" th:field="*{lastname}" id="lastName" th:placeholder="*{lastname}" class="form-control">
+        <div th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Lastname error</div>
     </div>
     <div class="col-sm-2">
         <label for="departmentId" class="form-label">Enter department Id:</label>

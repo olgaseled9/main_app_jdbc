@@ -1,4 +1,4 @@
-package com.seledtsova.dao.impl;
+package com.seledtsova.dao;
 
 
 import com.seledtsova.entity.Employee;

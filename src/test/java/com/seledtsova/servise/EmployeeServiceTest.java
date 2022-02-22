@@ -1,4 +1,4 @@
-package com.seledtsova.servise.impl;
+package com.seledtsova.servise;
 
 import com.seledtsova.converter.EmployeeServiceConverter;
 import com.seledtsova.dao.EmployeeDao;
@@ -18,14 +18,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class EmployeeServiceImplTest {
+class EmployeeServiceTest {
 
     @Mock
     EmployeeDao employeeDao;
     @Mock
     EmployeeServiceConverter converter;
     @InjectMocks
-    EmployeeServiceImpl itemService;
+    EmployeeService itemService;
 
     @Test
     void shouldReturnEmployeeList() {

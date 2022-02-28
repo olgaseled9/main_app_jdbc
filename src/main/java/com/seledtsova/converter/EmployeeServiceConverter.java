@@ -5,8 +5,9 @@ import com.seledtsova.entity.Employee;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
-@RequiredArgsConstructor
 public class EmployeeServiceConverter {
 
     public EmployeeDTO convertEmployeeToDTO(Employee employee) {

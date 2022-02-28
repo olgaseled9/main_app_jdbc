@@ -39,20 +39,4 @@ class EmployeeServiceTest {
         assertEquals(items.get(0).getId(), employeeDTO.getId());
     }
 
-    @Test
-    void shouldGetEmptyListOfEmployees() {
-        List<Employee> items = employeeDao.findAll();
-        assertTrue(items.isEmpty());
-    }
-
-    @Test
-    void shouldFindEmployeeById() {
-        EmployeeDTO employeeDTO = new EmployeeDTO();
-        Long id = 8L;
-        Employee employee = new Employee();
-        employee.setId(id);
-        when(employeeDao.findById(id)).thenReturn(employee);
-        when(converter.convertEmployeeToDTO(employee)).thenReturn(employeeDTO);
-        assertEquals(itemService.findEmployeeById(employee.getId()), employeeDTO);
-    }
 }

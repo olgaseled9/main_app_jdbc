@@ -4,12 +4,12 @@ import com.seledtsova.converter.EmployeeServiceConverter;
 import com.seledtsova.dao.EmployeeDao;
 import com.seledtsova.dto.EmployeeDTO;
 import com.seledtsova.entity.Employee;
-import com.seledtsova.exception.ServiceException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeService {
@@ -24,20 +24,16 @@ public class EmployeeService {
 
     @Transactional
     public void addEmployee(EmployeeDTO employeeDTO) {
-        employeeDao.add(converter.convertDTOtoEmployee(employeeDTO));
+        employeeDao.save(converter.convertDTOtoEmployee(employeeDTO));
     }
 
-    @Transactional (readOnly = true)
+    @Transactional(readOnly = true)
     public EmployeeDTO findEmployeeById(Long id) {
-        Employee employee = employeeDao.findById(id);
-        if (employee != null) {
-            return converter.convertEmployeeToDTO(employee);
-        } else {
-            throw new ServiceException("Employee is not found");
-        }
+        Optional<Employee> employee = employeeDao.findById(id);
+        return converter.convertEmployeeToDTO(employee.get());
     }
 
-    @Transactional (readOnly = true)
+    @Transactional(readOnly = true)
     public List<EmployeeDTO> getEmployees() {
         List<Employee> employees = employeeDao.findAll();
         List<EmployeeDTO> employeesDTOS = new ArrayList<>();
@@ -49,28 +45,21 @@ public class EmployeeService {
 
     @Transactional
     public void removeEmployeeById(Long id) {
-        Employee employee = employeeDao.findById(id);
-        if (employee != null) {
-            employeeDao.delete(id);
-        } else {
-            throw new ServiceException("Employee is not found");
-        }
+        Optional<Employee> employee = employeeDao.findById(id);
+        employeeDao.delete(employee.get());
     }
 
     @Transactional
     public void updateEmployee(EmployeeDTO employeeDTO) {
-        Employee employee = employeeDao.findById(employeeDTO.getId());
-        if (employee != null) {
-            employee.setId(employee.getId());
-            employee.setFirstname(employeeDTO.getFirstname());
-            employee.setLastname(employeeDTO.getLastname());
-            employee.setDepartmentId(employeeDTO.getDepartmentId());
-            employee.setJobTitle(employeeDTO.getJobTitle());
-            employee.setDateOfBirth(employeeDTO.getDateOfBirth());
-            employee.setGender(employeeDTO.getGender());
-            employeeDao.update(employee, employee.getId());
-        } else {
-            throw new ServiceException("Employee was not update");
-        }
+        Optional<Employee> employee = employeeDao.findById(employeeDTO.getId());
+        employee.get().setId(employeeDTO.getId());
+        employee.get().setFirstname(employeeDTO.getFirstname());
+        employee.get().setLastname(employeeDTO.getLastname());
+        employee.get().setDepartmentId(employeeDTO.getDepartmentId());
+        employee.get().setJobTitle(employeeDTO.getJobTitle());
+        employee.get().setDateOfBirth(employeeDTO.getDateOfBirth());
+        employee.get().setGender(employeeDTO.getGender());
+        employeeDao.save(employee.get());
+
     }
 }

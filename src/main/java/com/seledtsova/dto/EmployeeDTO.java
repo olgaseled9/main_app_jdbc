@@ -9,7 +9,6 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Data
-@RequiredArgsConstructor
 public class EmployeeDTO {
 
     private Long id;

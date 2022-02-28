@@ -17,6 +17,7 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class EmployeeRestController {
 
+
     private final EmployeeService employeeService;
 
     public EmployeeRestController(EmployeeService employeeService) {
@@ -34,7 +35,7 @@ public class EmployeeRestController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } else {
             employeeService.addEmployee(employeeDTO);
-            log.debug("Added employees with name {}", employeeDTO.getId());
+            log.debug("Added employees with id {}", employeeDTO.getId());
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
     }
@@ -50,6 +51,7 @@ public class EmployeeRestController {
     public EmployeeDTO getEmployeeById(@PathVariable Long id) {
         return employeeService.findEmployeeById(id);
     }
+
 
     @PutMapping("/employees/{id}")
     public ResponseEntity<Void> updateEmployeeById(@PathVariable Long id, @RequestBody EmployeeDTO employee) {
